@@ -33,7 +33,7 @@ pipeline {
                     echo("Your user-id:  ${inputUser}")
                     echo("Your Password: ${inputPass}")
                     
-                    keepCommand = 'zowe files list ds "MARTA02.*" --user ' | "${inputUser}"
+                    keepCommand = 'zowe files list ds "MARTA02.*" --user ' $inputUser
                     echo("Comando eh ${keepCommand}")
                     //sh 'zowe files list ds "MARTA02.*" --user ' "$inputUser" ' --password ' "$inputPass"                    
                     
