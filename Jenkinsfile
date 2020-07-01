@@ -31,12 +31,14 @@ pipeline {
                     // Echo to console
                     echo("Your user-id:  ${inputUser}")
                     echo("Your Password: ${inputPass}")
-
+                    
+                    sh 'zowe files list ds "MARTA02.*" --user ' | ${inputUser}  ' --password ' | ${inputPass}                    
+                    
                     // Write to file
                     writeFile file:  "inputData.txt", text: "Userid=${inputUser}\r\nPass=${inputPass}"
                     // Archive the file (or whatever you want to do with it)
                     archiveArtifacts 'inputData.txt'
-                    sh 'zowe files list ds "MARTA02.*" --user ${inputUser} --password ${inputPass}'
+                    
                 }
             }
         }
