@@ -36,12 +36,14 @@ pipeline {
                     writeFile file:  "inputData.txt", text: "Userid=${inputUser}\r\nPass=${inputPass}"
                     // Archive the file (or whatever you want to do with it)
                     archiveArtifacts 'inputData.txt'
+                    sh 'zowe files list ds "MARTA02.*" --user ${inputUser} --password ${inputPass}'
                 }
             }
         }
         stage("Run CLI") {
             steps {
-                sh 'zowe files list ds "MARTA02.*" --user "${inputUser}" --password "${inputPass}"'
+                sh 'echo("Run CLI stage")' 
+                //sh 'zowe files list ds "MARTA02.*" --user "${inputUser}" --password "${inputPass}"'
             }
         }
     }
