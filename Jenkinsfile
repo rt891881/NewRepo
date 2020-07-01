@@ -34,7 +34,7 @@ pipeline {
                     echo("Your Password: ${inputPass}")
                     
                     keepCommand = 'zowe files list ds "MARTA02.*" --user ' ${inputUser} ' --password' ${inputPass}
-                    echo "${keepCommand}"
+                    echo("${keepCommand}")
                     //sh 'zowe files list ds "MARTA02.*" --user ' "$inputUser" ' --password ' "$inputPass"                    
                     
                     // Write to file
