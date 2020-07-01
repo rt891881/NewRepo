@@ -32,7 +32,7 @@ pipeline {
                     echo("Your user-id:  ${inputUser}")
                     echo("Your Password: ${inputPass}")
                     
-                    sh 'zowe files list ds "MARTA02.*" --user ' "${inputUser}" ' --password ' "${inputPass}"                    
+                    sh 'zowe files list ds "MARTA02.*" --user ' $inputUser ' --password ' $inputPass                    
                     
                     // Write to file
                     writeFile file:  "inputData.txt", text: "Userid=${inputUser}\r\nPass=${inputPass}"
