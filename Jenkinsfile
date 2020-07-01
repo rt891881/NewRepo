@@ -4,6 +4,11 @@ pipeline {
         timeout(time: 60)
         }
     stages {
+        stage("Path") {
+            steps {
+                echo("${PATH}")
+            }
+        }
         stage("Input") {
             steps {
                 script {
