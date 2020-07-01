@@ -41,7 +41,7 @@ pipeline {
         }
         stage("Run CLI") {
             steps {
-                sh 'zowe files list ds "MARTA02.*" --user ${inputUser} --password ${inputPass}'
+                sh 'zowe files list ds "MARTA02.*" --user "${inputUser}" --password "${inputPass}"'
             }
         }
     }
